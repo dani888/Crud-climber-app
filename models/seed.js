@@ -1,4 +1,5 @@
-const classes = [
+module.exports  = {
+    classes: [
     {
       name: "Bouldering",
       description:
@@ -27,5 +28,4 @@ const classes = [
         day: "Thursday",
     },
   ]
-
-module.exports = classes;
+}

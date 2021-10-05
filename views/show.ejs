@@ -14,13 +14,18 @@
         <div class="topnav">
             <a class="active" href="/">Home</a>
             <a href="/classes">Classes</a>
-            <a href="/scheduler">Scheduler</a>
+            <a href="/classes/scheduler">Scheduler</a>
             <a href="/about">About</a>
             <a id="signin" href="/models/">Sign In</a>
         </div><br>
         <div class="container">
-            <button onclick="window.location.href='/classes'">Back</button>
-            <button onclick="window.location.href='/scheduler'">Add Class</button>
+            <!-- <button onclick="window.location.href='/classes'">Back</button> -->
+            <form action="/classes/scheduler" method="POST">
+                <input type="hidden" name="classId" value="<%=classe._id %>"/><br />
+                <!-- Add this Product? <input type="checkbox" name="completed" /><br /> -->
+                <input type="submit" value="Add Class" />
+            </form>
+            <!-- <button onclick="window.location.href='/classes/scheduler/<%= classe._id %>'">Add Class</button> -->
             <h1><%=classe.name %></h1>
             <img src="<%=classe.img %>">
             <table>
@@ -41,7 +46,7 @@
                 </tr>
                 <tr>
                     <td>
-                        The classe can be taken <br><%=classe.day %>
+                        The class can be taken <br><%=classe.day %>
                     </td>
                 </tr>
             </table>
@@ -91,6 +96,11 @@
                     border-radius: 25px;
                     height: 200px;
                     width: 200px;
+                }
+                input[type=submit]{
+                color:white;
+                background-color: black;
+                /* width: 110px; */
                 }
             </style>
     </body>

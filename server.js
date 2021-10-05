@@ -40,8 +40,6 @@ app.get('/' , (req, res) => {
 });
 // INDEX ROUTE
 app.get('/classes', (req, res) => {
-    // the callback function inside our model methods is used for mongoose to call back to
-    // when MongoDB is done doing what we ask it
     classes.find({}, (err, classes) => { 
         res.render("index.ejs", {
             allClasses: classes,
@@ -49,27 +47,54 @@ app.get('/classes', (req, res) => {
         // res.json(products);
     })   
 });
+app.get('/classes/scheduler', (req, res) => {
+    schedule.find({}, async (err, schedules) => { 
+        let usedClasses = await Promise.all(schedules.map(schedule=>classes.findById(schedule.classId).exec()))
+        res.render("indexschedule.ejs", {
+            usedClasses: usedClasses,
+            schedules: schedules
+        })
+    })   
+});
 // route seed database
 app.get('/classes/seed', (req, res) => {
     classes.deleteMany({}, (error, classes) => {})
-    
     classes.create(seed, (error, data) => {
-        res.redirect("/classes")
+    res.redirect("/classes")
     // res.send(seed);
     })
 })
-
+// app.get('/classes/scheduler/seed', (req, res) => {
+//     schedule.deleteMany({}, (error, classes) => {})
+//     schedule.create(seed, (error, data) => {
+//     res.redirect("/classes/scheduler")
+//     // res.send(seed);
+//     })
+// })
+app.post('/classes/:id', (req, res) => {
+    req.body.completed = !!req.body.completed; // !!'on' -> true or !!undefined -> false
+    schedule.create(req.body, (err, book) => {
+        res.redirect('/classes/scheduler'); // tells the browser to make another GET request to /books
+    });
+});
 // SHOW ROUTE
+app.get("/classes/scheduler/:id", (req, res) => {
+    schedule.findById(req.params.id, (err, schduler) => {
+        classes.findById(schduler.classId, (err, classe) => {
+            res.render("showsched.ejs", { 
+                clas:classe,
+                schedule:schduler
+            })
+        })
+    })
+})
+
 app.get("/classes/:id", (req, res) => {
     classes.findById(req.params.id, (err, classe) => {
       res.render("show.ejs", { classe })
     })
   })
-app.get("/classes/:id/scheduler", (req, res) => {
-    schedule.findById(req.params.id, (err, classe) => {
-      res.render("showsched.ejs", { classe })
-    })
-  })
+
 /*
 app.get("/products/new", (req, res) => {
     res.render("new.ejs")

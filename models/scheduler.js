@@ -4,8 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // define our schema
 const schedulerSchema = new Schema({
-    classId: String,
-    day: String,
+    classId: { type: Schema.Types.ObjectId, ref: 'climbing' },
     completed: {type: Boolean, default: false},
     note: String
     },
