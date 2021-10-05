@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/normalize.css" />
+        <link rel="stylesheet" href="/skeleton.css" />
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" href="/">Home</a>
+            <a href="/classes">Classes</a>
+            <a href="/scheduler">Scheduler</a>
+            <a href="/about">About</a>
+            <a id="signin" href="/models/">Sign In</a>
+        </div><br>
+        <div class="container">
+            <button onclick="window.location.href='/classes'">Back</button>
+            <button onclick="window.location.href='/scheduler'">Add Class</button>
+            <h1><%=classe.name %></h1>
+            <img src="<%=classe.img %>">
+            <table>
+                <tr>
+                    <td>
+                       The instructor is <%=classe.instructor %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Description:<br><%=classe.description %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Price: $<%=classe.price %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        The classe can be taken <br><%=classe.day %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <style type="text/css">
+            body {
+                    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("https://images.unsplash.com/photo-1564769662533-4f00a87b4056?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=7952&q=80");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    font-size: 25px;
+                    font-weight: bold;
+                    font-family: Didot, serif;
+                }
+                button{
+                color:white;
+                background-color: #282828;
+                /* width: auto; */
+                }
+                .topnav {
+                overflow: hidden;
+                background-color: #333;
+                }
+
+                .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+                }
+
+                .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+                }
+
+                .topnav a.active {
+                background-color: #04AA6D;
+                color: white;
+                }
+                #signin {
+                    float: right;
+                }
+                img {
+                    border-radius: 25px;
+                    height: 200px;
+                    width: 200px;
+                }
+            </style>
+    </body>
+</html>

@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const classes = require('./models/classes');
+const schedule = require('./models/scheduler');
 const seed = require('./models/seed');
 const bodyParser = require('body-parser');
 const methodOverride = require("method-override")
@@ -57,10 +58,19 @@ app.get('/classes/seed', (req, res) => {
     // res.send(seed);
     })
 })
+
+// SHOW ROUTE
+app.get("/classes/:id", (req, res) => {
+    classes.findById(req.params.id, (err, classe) => {
+      res.render("show.ejs", { classe })
+    })
+  })
+app.get("/classes/:id/scheduler", (req, res) => {
+    schedule.findById(req.params.id, (err, classe) => {
+      res.render("showsched.ejs", { classe })
+    })
+  })
 /*
-
-
-
 app.get("/products/new", (req, res) => {
     res.render("new.ejs")
   })
@@ -124,15 +134,7 @@ app.post("/products", (req, res) => {
     })
   })
 //
-// SHOW ROUTE
-app.get('/products/:id', (req, res) => {
-    Product.findById(req.params.id, (err, products) => {
-        console.log(products)
-        res.render("show.ejs", {
-            productDetail: products,
-        })
-    })
-})
+
 */
 // tell the server to listen for requests from the client
 const port = process.env.PORT || 3000;
