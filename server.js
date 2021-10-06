@@ -32,92 +32,14 @@ db.on('error', () => console.log(`Uh Oh! Mongodb had and error ${error.message}`
 // app.use(express.json());
 app.use(express.urlencoded());
 
+const classController = require("./controllers/classes")
+app.use("/classes", classController);
 
 // mount our routes
 // WELCOME PAGE
 app.get('/' , (req, res) => {
     res.render("welcome.ejs");
 });
-// INDEX ROUTE
-app.get('/classes', (req, res) => {
-    classes.find({}, (err, classes) => { 
-        res.render("index.ejs", {
-            allClasses: classes,
-          })
-        // res.json(products);
-    })   
-});
-app.get('/classes/scheduler', (req, res) => {
-    schedule.find({}, async (err, schedules) => { 
-        let usedClasses = await Promise.all(schedules.map(schedule=>classes.findById(schedule.classId).exec()))
-        res.render("indexschedule.ejs", {
-            usedClasses: usedClasses,
-            schedules: schedules
-        })
-    })   
-});
-// route seed database
-app.get('/classes/seed', (req, res) => {
-    classes.deleteMany({}, (error, classes) => {})
-    classes.create(seed, (error, data) => {
-    res.redirect("/classes")
-    // res.send(seed);
-    })
-})
-// app.get('/classes/scheduler/seed', (req, res) => {
-//     schedule.deleteMany({}, (error, classes) => {})
-//     schedule.create(seed, (error, data) => {
-//     res.redirect("/classes/scheduler")
-//     // res.send(seed);
-//     })
-// })
-app.get("/classes/scheduler/:id/edit", (req, res) => {
-    schedule.findById(req.params.id, (err, schduler) => {
-        classes.findById(schduler.classId, (err, classe) => {
-            res.render("edit.ejs", { 
-                clas:classe,
-                schedule:schduler
-            })
-        })
-    })
-})
-app.put("/classes/scheduler/:id", (req, res) => {
-    req.body.completed = !!req.body.completed;
-    schedule.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      {
-        new: true,
-      },
-      (error, updatedProducts) => {
-        res.redirect(`/classes/scheduler/${req.params.id}`)
-      }
-    )
-})
-app.post('/classes/:id', (req, res) => {
-    req.body.completed = !!req.body.completed; // !!'on' -> true or !!undefined -> false
-    schedule.create(req.body, (err, book) => {
-        res.redirect('/classes/scheduler'); // tells the browser to make another GET request to /books
-    });
-});
-// SHOW ROUTE
-app.get("/classes/scheduler/:id", (req, res) => {
-    schedule.findById(req.params.id, (err, schduler) => {
-        classes.findById(schduler.classId, (err, classe) => {
-            res.render("showsched.ejs", { 
-                clas:classe,
-                schedule:schduler
-            })
-        })
-    })
-})
-
-app.get("/classes/:id", (req, res) => {
-    classes.findById(req.params.id, (err, classe) => {
-      res.render("show.ejs", { classe })
-    })
-  })
-
 /*
 app.get("/products/new", (req, res) => {
     res.render("new.ejs")

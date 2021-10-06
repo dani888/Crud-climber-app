@@ -20,33 +20,36 @@
         </div><br>
         <div class="container">
             <button onclick="window.location.href='/classes/scheduler/<%=schedule._id %>/edit'">Edit</button>
+            <form action="/classes/scheduler/<%=schedule._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE" />
+            </form>
             <h1><%=clas.name %></h1>
             <img src="<%=clas.img %>">
             <table>
                 <tr>
                     <td>
-                        The instructor is <%=clas.instructor %>
+                        The instructor:<br> <%=clas.instructor %>
                     </td>
                     <td>
-                        Description:<br><%=clas.description %>
+                       Details:<br><%=clas.description %>
                     </td>
                      <td>
-                            Price: $<%=clas.price %>
+                           The price: <br>$<%=clas.price %>
                     </td>
                     <td>
-                            The class can be taken <br><%=clas.day %>
+                        Available: <br><%=clas.day %>
                     </td>
                 </tr>
                     <tr>
                         <td>
                             <% if(schedule.completed === false){ %>
-                                You have not Completed this course yet
+                                Course Incomeplete
                            <% } else { %>
-                                You have Completed this course!
+                                Course Completed!
                             <% } %>
                         </td>
                         <td>
-                            <%=schedule.note %>
+                            Notes:<br><%=schedule.note %>
                         </td>
                     </tr>
                 </table>
@@ -64,7 +67,7 @@
                 button{
                 color:white;
                 background-color: #282828;
-                /* width: auto; */
+                width: 110px;
                 }
                 .topnav {
                 overflow: hidden;
@@ -96,6 +99,11 @@
                     border-radius: 25px;
                     height: 200px;
                     width: 200px;
+                }
+                input[type=submit]{
+                color:white;
+                background-color: #282828;
+                width: 110px;
                 }
             </style>
     </body>
