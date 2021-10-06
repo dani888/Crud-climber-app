@@ -1,5 +1,4 @@
-module.exports  = {
-    classes: [
+const classes = [
     {
       name: "Bouldering",
       description:
@@ -28,4 +27,5 @@ module.exports  = {
         day: "Thursday",
     },
   ]
-}
+
+module.exports = classes;

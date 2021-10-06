@@ -71,6 +71,29 @@ app.get('/classes/seed', (req, res) => {
 //     // res.send(seed);
 //     })
 // })
+app.get("/classes/scheduler/:id/edit", (req, res) => {
+    schedule.findById(req.params.id, (err, schduler) => {
+        classes.findById(schduler.classId, (err, classe) => {
+            res.render("edit.ejs", { 
+                clas:classe,
+                schedule:schduler
+            })
+        })
+    })
+})
+app.put("/classes/scheduler/:id", (req, res) => {
+    req.body.completed = !!req.body.completed;
+    schedule.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      },
+      (error, updatedProducts) => {
+        res.redirect(`/classes/scheduler/${req.params.id}`)
+      }
+    )
+})
 app.post('/classes/:id', (req, res) => {
     req.body.completed = !!req.body.completed; // !!'on' -> true or !!undefined -> false
     schedule.create(req.body, (err, book) => {

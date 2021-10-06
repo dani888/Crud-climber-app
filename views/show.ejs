@@ -20,31 +20,24 @@
         </div><br>
         <div class="container">
             <!-- <button onclick="window.location.href='/classes'">Back</button> -->
-            <form action="/classes/scheduler" method="POST">
-                <input type="hidden" name="classId" value="<%=classe._id %>"/><br />
-                <!-- Add this Product? <input type="checkbox" name="completed" /><br /> -->
-                <input type="submit" value="Add Class" />
-            </form>
+            
             <!-- <button onclick="window.location.href='/classes/scheduler/<%= classe._id %>'">Add Class</button> -->
             <h1><%=classe.name %></h1>
-            <img src="<%=classe.img %>">
+            <img src="<%=classe.img %>"> <form action="/classes/scheduler" method="POST">
+                <input type="hidden" name="classId" value="<%=classe._id %>"/><br />
+                <input type="submit" value="Add Class" />
+            </form>
             <table>
                 <tr>
                     <td>
-                       The instructor is <%=classe.instructor %>
+                       The instructor:<br> <%=classe.instructor %>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         Description:<br><%=classe.description %>
                     </td>
-                </tr>
-                <tr>
                     <td>
-                        Price: $<%=classe.price %>
+                        The price: <br>$<%=classe.price %>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         The class can be taken <br><%=classe.day %>
                     </td>
@@ -101,6 +94,9 @@
                 color:white;
                 background-color: black;
                 /* width: 110px; */
+                }
+                form {
+                    padding: -100px;
                 }
             </style>
     </body>

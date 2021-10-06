@@ -19,6 +19,7 @@
             <a id="signin" href="/models/">Sign In</a>
         </div><br>
         <div class="container">
+            <button onclick="window.location.href='/classes/scheduler/<%=schedule._id %>/edit'">Edit</button>
             <h1><%=clas.name %></h1>
             <img src="<%=clas.img %>">
             <table>
@@ -26,28 +27,24 @@
                     <td>
                         The instructor is <%=clas.instructor %>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         Description:<br><%=clas.description %>
                     </td>
-                </tr>
-                <tr>
                      <td>
                             Price: $<%=clas.price %>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                    </td>
+                    <td>
                             The class can be taken <br><%=clas.day %>
-                        </td>
-                    </tr>
+                    </td>
+                </tr>
                     <tr>
                         <td>
-                            Completed Coure? <%=schedule.completed %>
+                            <% if(schedule.completed === false){ %>
+                                You have not Completed this course yet
+                           <% } else { %>
+                                You have Completed this course!
+                            <% } %>
                         </td>
-                    </tr>
-                    <tr>
                         <td>
                             <%=schedule.note %>
                         </td>
