@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/normalize.css" />
+        <link rel="stylesheet" href="/skeleton.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Add Class</h1>
+            <button onclick="window.location.href='/classes'">Back</button>
+            <form action="/classes" method="POST">
+                <input type="text" name="name" placeholder="Class name"/><br />
+                <input type="text" name="description" placeholder="Class description"/><br />
+                <input type="text" name="instructor" placeholder="Instructor name"/><br />
+                <input type="url" name="img" placeholder="Class image/url"/><br /><br />
+                <input type="number" name="price" placeholder="Price"/><br />
+                <input type="text" name="day" placeholder="Mon-Sun"/><br />
+                Add Class? <input type="checkbox" name="completed" /><br />
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </body>
+</html>

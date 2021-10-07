@@ -22,6 +22,15 @@ classRouter.get('/scheduler', (req, res) => {
         })
     })   
 });
+classRouter.get("/new", (req, res) => {
+    res.render("new.ejs")
+  })
+  classRouter.post("/", (req, res) => {
+    req.body.completed = !!req.body.completed;
+    classes.create(req.body, (error, product) => {
+    res.redirect('/classes')
+    })
+  })
 classRouter.delete("/scheduler/:id", (req, res) => {
     schedule.findByIdAndRemove(req.params.id, (err, data) => {
       res.redirect("/classes/scheduler")
@@ -35,13 +44,7 @@ classRouter.get('/seed', (req, res) => {
     // res.send(seed);
     })
 })
-// classRouter.get('/classes/scheduler/seed', (req, res) => {
-//     schedule.deleteMany({}, (error, classes) => {})
-//     schedule.create(seed, (error, data) => {
-//     res.redirect("/classes/scheduler")
-//     // res.send(seed);
-//     })
-// })
+
 classRouter.get("/scheduler/:id/edit", (req, res) => {
     schedule.findById(req.params.id, (err, schduler) => {
         classes.findById(schduler.classId, (err, classe) => {

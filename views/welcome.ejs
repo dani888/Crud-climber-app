@@ -11,18 +11,25 @@
         <link rel="stylesheet" href="/skeleton.css" />
     </head>
     <body>
-        <div>
+        <div class="topnav">
+            <a class="active" href="/">Home</a>
+            <a href="/classes">Classes</a>
+            <a href="/classes/scheduler">Scheduler</a>
+            <a href="/about">About</a>
+            <a id="signin" href="/models/">Sign In</a>
+        </div><br>
+        <div id="center">
         <h1>Welcome to Crud Climber</h1><br>
         <button onclick="window.location.href='/classes'">Lets get Started!</button>
         </div>
-        <nav>
+        <!-- <nav>
             <form action="/signin/">
                 <input type="submit" value="Sign In" />
             </form>
             <form action="/signup/">
                 <input type="submit" value="Sign Up" />
             </form>
-        </nav>
+        </nav> -->
         
         <style type="text/css">
             body {
@@ -33,8 +40,8 @@
                     font-size: 25px;
                     font-weight: bold;
                     font-family: Didot, serif;
-                }
-                div {
+                    }
+                    #center {
                     height: 200px;
                     width: 600px;
                     /* background: black; */
@@ -44,25 +51,48 @@
                     left: 50%;
                     margin-top: -100px;
                     margin-left: -300px;
-                }
-                form {
+                    }
+                    .topnav {
+                    overflow: hidden;
+                    background-color: #333;
+                    }
+                    .topnav a {
+                    float: left;
+                    color: #f2f2f2;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    font-size: 17px;
+                    }
+                    .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                    }
+                    .topnav a.active {
+                    background-color: #0d9261;
+                    color: white;
+                    }
+                    form {
                     
                     padding-right: 10px;
                     padding-top: 10px;
                     display: inline;
                     float: right;
-                }
-                button{
-                color:white;
-                background-color: #282828;
-                height: 40px;
-                /* width: 110px; */
-                }
-                input[type=submit]{
-                color:white;
-                background-color: #282828;
-                /* width: 110px; */
-                }
+                    }
+                    button{
+                    color:white;
+                    background-color: #282828;
+                    height: 40px;
+                    /* width: 110px; */
+                    }
+                    input[type=submit]{
+                    color:white;
+                    background-color: #282828;
+                    /* width: 110px; */
+                    }
+                    #signin {
+                    float: right;
+                    }
             </style>
         <script src="" async defer></script>
     </body>
