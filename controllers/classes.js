@@ -4,15 +4,30 @@ const classes = require('../models/classes');
 const schedule = require('../models/scheduler');
 const seed = require('../models/seed');
 
+
 // INDEX ROUTE
 classRouter.get('/', (req, res) => {
     classes.find({}, (err, classes) => { 
         res.render("index.ejs", {
             allClasses: classes,
+            currentUser: req.session.currentUser,
           })
         // res.json(products);
     })   
 });
+
+classRouter.get("/", (req, res) => {
+  if (req.session.currentUser) {
+    res.render("index.ejs", {
+      currentUser: req.session.currentUser,
+    })
+  } else {
+    res.render("scheduler.ejs", {
+      currentUser: req.session.currentUser,
+    })
+  }
+})
+
 classRouter.get('/scheduler', (req, res) => {
     schedule.find({}, async (err, schedules) => { 
         let usedClasses = await Promise.all(schedules.map(schedule=>classes.findById(schedule.classId).exec()))
