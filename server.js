@@ -67,77 +67,7 @@ app.get('/' , (req, res) => {
     });
 });
 
-// app.get("/classes", (req, res) => {
-//   res.render("index.ejs", {
-//     currentUser: req.session.currentUser,
-//   })
-// })
-/*
-app.get("/products/new", (req, res) => {
-    res.render("new.ejs")
-  })
 
-app.delete("/products/:id", (req, res) => {
-    Product.findByIdAndRemove(req.params.id, (err, data) => {
-      res.redirect("/products")
-    })
-  })
-
-app.get("/products/:id/edit", (req, res) => {
-    Product.findById(req.params.id, (error, product) => {
-      res.render("edit.ejs", {
-        editProduct: product,
-      })
-    })
-  })
-  // buy button
-app.put("/products/:id/buy", (req, res) => {
-    Product.findByIdAndUpdate(
-        req.params.id,
-        { $inc: { qty: -1} },
-        {
-          new: true,
-        },
-        (error, updatedProduct) => {
-          res.redirect(`/products/${req.params.id}`)
-        }
-      )
-  })
-app.put("/products/:id", (req, res) => {
-    if (req.body.completed === "on") {
-      req.body.completed = true
-    } else {
-      req.body.completed = false
-    }
-    Product.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      {
-        new: true,
-      },
-      (error, updatedProducts) => {
-        res.redirect(`/products/${req.params.id}`)
-      }
-    )
-})
-// post
-app.post("/products", (req, res) => {
-    if (req.body.completed === "on") {
-      //if checked, req.body.completed is set to 'on'
-      req.body.completed = true
-    } else {
-      //if not checked, req.body.completed is undefined
-      req.body.completed = false
-    }
-
-    Product.create(req.body, (error, product) => {
-    res.redirect('/products')
-    //  res.send(product)
-    })
-  })
-//
-
-*/
 // tell the server to listen for requests from the client
 const port = process.env.PORT || 3000;
 

@@ -33,7 +33,8 @@
         <div class="container">
             <button onclick="window.location.href='/classes'">Back</button>
             <form action="/classes/scheduler" method="POST">
-                <input type="hidden" name="classId" value="<%=classe._id %>"/><br />
+                <input type="hidden" name="classId" value="<%=classe._id %>"/>
+                <input type="hidden" name="userId" value="<%=currentUser%>"/>
                 <input id="right" type="submit" value="Add Class" />
             </form> <br>
             <!-- <button onclick="window.location.href='/classes/scheduler/<%= classe._id %>'">Add Class</button> -->

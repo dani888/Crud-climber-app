@@ -9,6 +9,7 @@ const isAuthenticated = require('../utils/auth');
 
 // INDEX ROUTE
 classRouter.get('/', (req, res) => {
+  console.log("get /")
     classes.find({}, (err, classes) => { 
         res.render("index.ejs", {
             allClasses: classes,
@@ -17,28 +18,25 @@ classRouter.get('/', (req, res) => {
         // res.json(products);
     })   
 });
-
-classRouter.get("/", (req, res) => {
-  if (req.session.user) {
-    res.render("index.ejs", {
-      currentUser: req.session.user,
-    })
-  } else {
-    res.render("scheduler.ejs", {
-      currentUser: req.session.user,
-    })
-  }
-})
+// 
+// classRouter.get("/", (req, res) => {
+//   if (req.session.user) {
+//     res.render("index.ejs", {
+//       currentUser: req.session.user,
+//     })
+//   } else {
+//     res.render("scheduler.ejs", {
+//       currentUser: req.session.user,
+//     })
+//   }
+// })
 // protected route
 classRouter.get('/scheduler', isAuthenticated, (req, res) => {
   try {
     schedule.find({}, async (err, schedules) => { 
-       // change try , add var for whole code block so I dont have to do async
         let usedClasses = await Promise.all(schedules.map(schedule=>classes.findById(schedule.classId).exec()))
-        // let usedUsers = await Promise.all(schedules.map(schedule=>User.findById(schedule.userId).exec()))
         res.render("indexschedule.ejs", {
             currentUser: req.session.user,
-            // usedUsers : usedUsers,
             usedClasses: usedClasses,
             schedules: schedules
       })}
