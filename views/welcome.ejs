@@ -12,23 +12,29 @@
     </head>
     <body>
         <div class="topnav">
+            <% if(currentUser) { %>
             <a class="active" href="/">Home</a>
             <a href="/classes">Classes</a>
+            <a href="/classes/scheduler">Scheduler</a>
+            <a href="/classes/new">New Class</a>
+            
+            <form action="/sessions?_method=DELETE" method="POST">
+                <input type="submit" value="Log Out" />
+            </form>
+            <% } else { %>
+            <a class="active" href="/">Home</a>
+            <a href="/classes">Classes</a>
+            <a href="/classes/new">New Class</a>
             <a href="/about">About</a>
+            <a id="signin" href="/users/new">Register</a>
+            <a id="signin1" href="/sessions/new">Login</a>
+            <% } %>
         </div><br>
         <div id="center">
-        <h1>Welcome to Crud Climber</h1><br>
-        <button onclick="window.location.href='/classes'">Lets get Started!</button>
+            <h1>Welcome to Crud Climber</h1><br>
+            <button onclick="window.location.href='/classes'">Lets get Started!</button>
         </div>
-        <!-- <nav>
-            <form action="/signin/">
-                <input type="submit" value="Sign In" />
-            </form>
-            <form action="/signup/">
-                <input type="submit" value="Sign Up" />
-            </form>
-        </nav> -->
-        
+
         <style type="text/css">
             body {
                     background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("https://images.unsplash.com/photo-1522163182402-834f871fd851?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=4620&q=80");
@@ -50,6 +56,11 @@
                     margin-top: -100px;
                     margin-left: -300px;
                     }
+                    button{
+                    color:white;
+                    background-color: #282828;
+                    /* width: auto; */
+                    }
                     .topnav {
                     overflow: hidden;
                     background-color: #333;
@@ -58,7 +69,7 @@
                     float: left;
                     color: #f2f2f2;
                     text-align: center;
-                    padding: 14px 16px;
+                    padding: 18px 20px;
                     text-decoration: none;
                     font-size: 17px;
                     }
@@ -70,26 +81,21 @@
                     background-color: #0d9261;
                     color: white;
                     }
-                    form {
-                    
-                    padding-right: 10px;
-                    padding-top: 10px;
-                    display: inline;
-                    float: right;
+                    #signin {
+                        float: right;
                     }
-                    button{
-                    color:white;
-                    background-color: #282828;
-                    height: 40px;
-                    /* width: 110px; */
+                    #signin1 {
+                        float: right;
                     }
                     input[type=submit]{
                     color:white;
                     background-color: #282828;
+                    float: right;
                     /* width: 110px; */
                     }
-                    #signin {
-                    float: right;
+                    form {
+                        padding-top: 10px;
+                        padding-right: 10px;
                     }
             </style>
         <script src="" async defer></script>

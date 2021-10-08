@@ -100,10 +100,11 @@ classRouter.post('/:id', (req, res) => {
     });
 });
 // SHOW ROUTE
-classRouter.get("/scheduler/:id", (req, res) => {
+classRouter.get("/scheduler/:id", isAuthenticated, (req, res) => {
     schedule.findById(req.params.id, (err, schduler) => {
         classes.findById(schduler.classId, (err, classe) => {
             res.render("showsched.ejs", { 
+                currentUser: req.session.user,
                 clas:classe,
                 schedule:schduler
             })

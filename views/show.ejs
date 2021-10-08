@@ -31,14 +31,14 @@
             <% } %>
         </div><br>
         <div class="container">
-            <!-- <button onclick="window.location.href='/classes'">Back</button> -->
-            
-            <!-- <button onclick="window.location.href='/classes/scheduler/<%= classe._id %>'">Add Class</button> -->
-            <h1><%=classe.name %></h1>
-            <img src="<%=classe.img %>"> <form action="/classes/scheduler" method="POST">
+            <button onclick="window.location.href='/classes'">Back</button>
+            <form action="/classes/scheduler" method="POST">
                 <input type="hidden" name="classId" value="<%=classe._id %>"/><br />
                 <input id="right" type="submit" value="Add Class" />
             </form> <br>
+            <!-- <button onclick="window.location.href='/classes/scheduler/<%= classe._id %>'">Add Class</button> -->
+            <h1><%=classe.name %></h1>
+            <img src="<%=classe.img %>"> 
             <table>
                 <tr>
                     <td>
@@ -69,6 +69,7 @@
                 button{
                 color:white;
                 background-color: #282828;
+                width: 138.8px;
                 /* width: auto; */
                 }
                 .topnav {
@@ -80,7 +81,7 @@
                 float: left;
                 color: #f2f2f2;
                 text-align: center;
-                padding: 14px 16px;
+                padding: 18px 16px;
                 text-decoration: none;
                 font-size: 17px;
                 }
@@ -108,12 +109,15 @@
                 float: right;
                 /* width: 110px; */
                 }
+                #right {
+                    float: left;
+                }
+                h1{
+                    text-align: center;
+                }
                 form {
                     padding-top: 10px;
                     padding-right: 10px;
-                }
-                #right {
-                    float: left;
                 }
             </style>
     </body>

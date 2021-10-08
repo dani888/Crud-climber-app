@@ -7,6 +7,7 @@ const seed = require('./models/seed');
 const bodyParser = require('body-parser');
 const methodOverride = require("method-override")
 const session = require("express-session")
+const isAuthenticated = require('./utils/auth');
 // initialize the express app
 const app = express();
 app.use(express.static(__dirname + '/public'));
@@ -61,7 +62,9 @@ app.use("/classes", classController);
 // mount our routes
 // WELCOME PAGE
 app.get('/' , (req, res) => {
-    res.render("welcome.ejs");
+    res.render("welcome.ejs", {
+      currentUser: req.session.user
+    });
 });
 
 // app.get("/classes", (req, res) => {
