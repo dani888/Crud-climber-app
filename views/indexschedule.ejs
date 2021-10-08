@@ -12,14 +12,27 @@
     </head>
     <body>
         <div class="topnav">
+            <% if(currentUser) { %>
             <a href="/">Home</a>
             <a href="/classes">Classes</a>
             <a class="active" href="/classes/scheduler">Scheduler</a>
+            <a href="/classes/new">New Class</a>
+            
+            <form action="/sessions?_method=DELETE" method="POST">
+                <input type="submit" value="Log Out" />
+            </form>
+            <% } else { %>
+            <a href="/">Home</a>
+            <a class="active" href="/classes">Classes</a>
+            <a href="/classes/new">New Class</a>
             <a href="/about">About</a>
-            <a id="signin" href="/models/">Sign In</a>
+            <a id="signin" href="/users/new">Register</a>
+            <a id="signin1" href="/sessions/new">Login</a>
+            <% } %>
         </div><br>
         <div class="container">
             <h1>Keep your classes organized</h1>
+            <% if(currentUser) { %>
             <table>
                 <% for(let i = 0; i < schedules.length; i++) { %>  
                 <tr>
@@ -41,6 +54,7 @@
                 </tr>
                 <% } %>
             </table>
+            <% } %>
         </div>
         <style type="text/css">
             body {
@@ -85,8 +99,21 @@
                 width: 138px;
                 background-color: #282828;
                 }
+                #signin {
+                    float: right;
+                }
+                #signin1 {
+                    float: right;
+                }
+                input[type=submit]{
+                color:white;
+                background-color: #282828;
+                float: right;
+                /* width: 110px; */
+                }
                 form {
-                    padding-top: 30px;
+                    padding-top: 10px;
+                    padding-right: 10px;
                 }
             </style>
         <script src="" async defer></script>

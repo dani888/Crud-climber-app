@@ -32,7 +32,7 @@ sessionsRouter.post("/", (req, res) => {
           // if the passwords match
           if (passwordMatches) {
             // add the user to our session
-            req.session.currentUser = foundUser
+            req.session.user = foundUser._id
   
             // redirect back to our home page
             res.redirect("/classes")

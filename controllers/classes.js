@@ -2,7 +2,9 @@ const express = require("express")
 const classRouter = express.Router()
 const classes = require('../models/classes');
 const schedule = require('../models/scheduler');
+const User = require('../models/user');
 const seed = require('../models/seed');
+const isAuthenticated = require('../utils/auth');
 
 
 // INDEX ROUTE
@@ -10,34 +12,41 @@ classRouter.get('/', (req, res) => {
     classes.find({}, (err, classes) => { 
         res.render("index.ejs", {
             allClasses: classes,
-            currentUser: req.session.currentUser,
+            currentUser: req.session.user,
           })
         // res.json(products);
     })   
 });
 
 classRouter.get("/", (req, res) => {
-  if (req.session.currentUser) {
+  if (req.session.user) {
     res.render("index.ejs", {
-      currentUser: req.session.currentUser,
+      currentUser: req.session.user,
     })
   } else {
     res.render("scheduler.ejs", {
-      currentUser: req.session.currentUser,
+      currentUser: req.session.user,
     })
   }
 })
-
-classRouter.get('/scheduler', (req, res) => {
+// protected route
+classRouter.get('/scheduler', isAuthenticated, (req, res) => {
+  try {
     schedule.find({}, async (err, schedules) => { 
+       // change try , add var for whole code block so I dont have to do async
         let usedClasses = await Promise.all(schedules.map(schedule=>classes.findById(schedule.classId).exec()))
+        // let usedUsers = await Promise.all(schedules.map(schedule=>User.findById(schedule.userId).exec()))
         res.render("indexschedule.ejs", {
+            currentUser: req.session.user,
+            // usedUsers : usedUsers,
             usedClasses: usedClasses,
             schedules: schedules
-        })
-    })   
-});
-classRouter.get("/new", (req, res) => {
+      })}
+    )} catch (error){
+        res.status(500).json({error: 'something went wrong'})
+    }
+})
+classRouter.get("/new", isAuthenticated,  (req, res) => {
     res.render("new.ejs")
   })
   classRouter.post("/", (req, res) => {
@@ -54,6 +63,7 @@ classRouter.delete("/scheduler/:id", (req, res) => {
 // route seed database
 classRouter.get('/seed', (req, res) => {
     classes.deleteMany({}, (error, classes) => {})
+    schedule.deleteMany({}, (error, classes) => {})
     classes.create(seed, (error, data) => {
     res.redirect("/classes")
     // res.send(seed);
@@ -101,9 +111,9 @@ classRouter.get("/scheduler/:id", (req, res) => {
     })
 })
 
-classRouter.get("/:id", (req, res) => {
+classRouter.get("/:id", isAuthenticated, (req, res) => {
     classes.findById(req.params.id, (err, classe) => {
-      res.render("show.ejs", { classe })
+      res.render("show.ejs", { classe, currentUser: req.session.user })
     })
   })
 
