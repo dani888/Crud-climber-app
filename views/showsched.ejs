@@ -9,21 +9,35 @@
         <link rel="stylesheet" href="">
         <link rel="stylesheet" href="/normalize.css" />
         <link rel="stylesheet" href="/skeleton.css" />
+        <link rel="stylesheet" href="/showsched.css" />
     </head>
     <body>
         <div class="topnav">
+            <% if(currentUser) { %>
             <a href="/">Home</a>
             <a href="/classes">Classes</a>
-            <a href="/classes/scheduler">Scheduler</a>
+            <a class="active" href="/classes/scheduler">Scheduler</a>
+            <a href="/classes/new">New Class</a>
+            
+            <form action="/sessions?_method=DELETE" method="POST">
+                <input type="submit" value="Log Out" />
+            </form>
+            <% } else { %>
+            <a href="/">Home</a>
+            <a class="active" href="/classes">Classes</a>
+            <a href="/classes/new">New Class</a>
             <a href="/about">About</a>
-            <a id="signin" href="/models/">Sign In</a>
+            <a id="signin" href="/users/new">Register</a>
+            <a id="signin1" href="/sessions/new">Login</a>
+            <% } %>
         </div><br>
         <div class="container">
-            <button onclick="window.location.href='/classes/scheduler/<%=schedule._id %>/edit'">Edit</button>
-            <form action="/classes/scheduler/<%=schedule._id %>?_method=DELETE" method="POST">
+            <button onclick="window.location.href='/classes/scheduler'">Back</button><br>
+            <button onclick="window.location.href='/classes/scheduler/<%=schedule._id %>/edit'">Edit</button><br>
+            <form id="left" action="/classes/scheduler/<%=schedule._id %>?_method=DELETE" method="POST">
                 <input type="submit" value="DELETE" />
             </form>
-            <h1><%=clas.name %></h1>
+            <h1><%=clas.name %></h1><br>
             <img src="<%=clas.img %>">
             <table>
                 <tr>
@@ -55,56 +69,7 @@
                 </table>
             </div>
         <style type="text/css">
-            body {
-                    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("https://images.unsplash.com/photo-1564769662533-4f00a87b4056?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=7952&q=80");
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    background-attachment: fixed;
-                    font-size: 25px;
-                    font-weight: bold;
-                    font-family: Didot, serif;
-                }
-                button{
-                color:white;
-                background-color: #282828;
-                width: 110px;
-                }
-                .topnav {
-                overflow: hidden;
-                background-color: #333;
-                }
-
-                .topnav a {
-                float: left;
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-                }
-
-                .topnav a:hover {
-                background-color: #ddd;
-                color: black;
-                }
-
-                .topnav a.active {
-                background-color: #04AA6D;
-                color: white;
-                }
-                #signin {
-                    float: right;
-                }
-                img {
-                    border-radius: 25px;
-                    height: 200px;
-                    width: 200px;
-                }
-                input[type=submit]{
-                color:white;
-                background-color: #282828;
-                width: 110px;
-                }
+           
             </style>
     </body>
 </html>
