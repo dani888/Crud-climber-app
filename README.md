@@ -10,6 +10,7 @@ model referencing, and full stack development.
 - JavaScript
 - Node.js
 - Express
+- MongoDB
 - Authentication with Bcrypt and Sessions
 - <a href="heroku.com/">Heroku</a> 
 
