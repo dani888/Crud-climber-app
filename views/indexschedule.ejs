@@ -49,10 +49,15 @@
                             Class:<br><%=usedClasses[i].name;%>
                             </td>
                             <td>   
-                                Overview:<br><%=usedClasses[i].description %>
+                            Course Notes:<br><%=schedules[i].note %>
                             </td>
                             <td>
-                            Times: <br><%=usedClasses[i].day %>
+                                Course Status: <br>
+                                <% if(schedules[i].completed === false){ %>
+                                    Course Incomeplete
+                                <% } else { %>
+                                    Course Completed!
+                                <% } %>
                             </td>
                         </tr>
                     <% } %>
