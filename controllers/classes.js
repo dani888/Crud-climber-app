@@ -37,13 +37,17 @@ classRouter.get('/scheduler', isAuthenticated, (req, res) => {
   try {
     schedule.find({}, async (err, schedules) => { 
         let usedClasses = await Promise.all(schedules.map(schedule=>classes.findById(schedule.classId).exec()))
+        User.findById(req.session.user, (err, users) => { 
         res.render("indexschedule.ejs", {
             currentUser: req.session.user,
+            user: users,
             usedClasses: usedClasses,
             schedules: schedules
-      })}
-    )} catch (error){
-        res.status(500).json({error: 'something went wrong'})
+      })
+    })
+  }
+  )} catch (error){
+      res.status(500).json({error: 'something went wrong'})
     }
 })
 // protected route create new class
