@@ -9,15 +9,17 @@ const isAuthenticated = require('../utils/auth');
 
 // INDEX ROUTE
 classRouter.get('/', (req, res) => {
-  console.log("get /")
     classes.find({}, (err, classes) => { 
+      User.findById(req.session.user, (err, users) => { 
+        console.log(users)
         res.render("index.ejs", {
             allClasses: classes,
+            user: users,
             currentUser: req.session.user,
-          })
-        // res.json(products);
-    })   
-});
+        })
+      })
+    })
+  })   
 // 
 // classRouter.get("/", (req, res) => {
 //   if (req.session.user) {
@@ -30,7 +32,7 @@ classRouter.get('/', (req, res) => {
 //     })
 //   }
 // })
-// protected route
+// protected route scheduler
 classRouter.get('/scheduler', isAuthenticated, (req, res) => {
   try {
     schedule.find({}, async (err, schedules) => { 
@@ -44,15 +46,18 @@ classRouter.get('/scheduler', isAuthenticated, (req, res) => {
         res.status(500).json({error: 'something went wrong'})
     }
 })
+// protected route create new class
 classRouter.get("/new", isAuthenticated,  (req, res) => {
     res.render("new.ejs")
   })
-  classRouter.post("/", (req, res) => {
+// post new class
+classRouter.post("/", (req, res) => {
     req.body.completed = !!req.body.completed;
     classes.create(req.body, (error, product) => {
     res.redirect('/classes')
     })
   })
+// delete route
 classRouter.delete("/scheduler/:id", (req, res) => {
     schedule.findByIdAndRemove(req.params.id, (err, data) => {
       res.redirect("/classes/scheduler")
@@ -67,7 +72,7 @@ classRouter.get('/seed', (req, res) => {
     // res.send(seed);
     })
 })
-
+// edit route
 classRouter.get("/scheduler/:id/edit", (req, res) => {
     schedule.findById(req.params.id, (err, schduler) => {
         classes.findById(schduler.classId, (err, classe) => {
