@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="/normalize.css" />
         <link rel="stylesheet" href="/skeleton.css" />
         <link rel="stylesheet" href="/show.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="topnav">
@@ -39,21 +42,28 @@
                 <input id="right" type="submit" value="Add Class" />
             </form> <br>
             <!-- <button onclick="window.location.href='/classes/scheduler/<%= classe._id %>'">Add Class</button> -->
-            <h1><%=classe.name %></h1>
-            <img src="<%=classe.img %>"> 
+            <h1><%=classe.name %>&nbsp;&nbsp;<img src="<%=classe.img %>"></h1>
             <table>
+                <thead>
+                    <tr>
+                        <th>Instructor:</th>
+                        <th>Overview:</th>
+                        <th>Price:</th>
+                        <th>Availability:</th>
+                    </tr>
+                </thead>
                 <tr>
                     <td>
-                       The instructor:<br> <%=classe.instructor %>
+                       <%=classe.instructor %>
                     </td>
                     <td>
-                        Description:<br><%=classe.description %>
+                        <%=classe.description %>
                     </td>
                     <td>
-                        The price: <br>$<%=classe.price %>
+                        $<%=classe.price %>
                     </td>
                     <td>
-                        The class can be taken <br><%=classe.day %>
+                        <%=classe.day %>
                     </td>
                 </tr>
             </table>

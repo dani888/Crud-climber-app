@@ -9,7 +9,7 @@ body {
   background-attachment: fixed;
   font-size: 25px;
   font-weight: bold;
-  font-family: Didot, serif;
+  font-family: "Bebas Neue", cursive;
 }
 button {
   color: white;
@@ -54,4 +54,15 @@ form {
 }
 #user {
   float: right;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }

@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="/normalize.css" />
         <link rel="stylesheet" href="/skeleton.css" />
         <link rel="stylesheet" href="/showsched.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="topnav">
@@ -37,33 +40,46 @@
             <form id="left" action="/classes/scheduler/<%=schedule._id %>?_method=DELETE" method="POST">
                 <input type="submit" value="DELETE" />
             </form>
-            <h1><%=clas.name %></h1><br>
-            <img src="<%=clas.img %>">
+            <h1><%=clas.name %>&nbsp;&nbsp;<img src="<%=clas.img %>"></h1>
             <table>
+                <thead>
+                    <tr>
+                        <th>Instructor:</th>
+                        <th>Overview:</th>
+                        <th>Price:</th>
+                        <th>Available?</th>
+                    </tr>
+                </thead>
                 <tr>
                     <td>
-                        The instructor:<br> <%=clas.instructor %>
+                        <%=clas.instructor %>
                     </td>
                     <td>
-                       Details:<br><%=clas.description %>
+                        <%=clas.description %>
                     </td>
                      <td>
-                           The price: <br>$<%=clas.price %>
+                        $<%=clas.price %>
                     </td>
                     <td>
-                        Available: <br><%=clas.day %>
+                        <%=clas.day %>
                     </td>
                 </tr>
+                <thead>
+                    <tr>
+                        <td>Course Status:</td>
+                        <td>Course Notes:</td>
+                    </tr>
+                </thead>
                     <tr>
                         <td>
                             <% if(schedule.completed === false){ %>
-                                Course Incomeplete
+                                Incomeplete
                            <% } else { %>
-                                Course Completed!
+                                Completed!
                             <% } %>
                         </td>
                         <td>
-                            Notes:<br><%=schedule.note %>
+                            <%=schedule.note %>
                         </td>
                     </tr>
                 </table>

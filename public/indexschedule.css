@@ -3,18 +3,19 @@ body {
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.unsplash.com/photo-1586627161720-ee2849303aee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80");
+    url("https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=5472&q=80");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-size: 25px;
   font-weight: bold;
-  font-family: Didot, serif;
+  font-family: "Bebas Neue", cursive;
+  /* font-family: Didot, serif; */
 }
 button {
   color: white;
   background-color: #282828;
-  width: auto;
+  /* width: auto; */
 }
 .topnav {
   overflow: hidden;
@@ -24,7 +25,7 @@ button {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 18px 16px;
+  padding: 18px 20px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -39,14 +40,6 @@ button {
 #signin {
   float: right;
 }
-input[type="submit"] {
-  color: white;
-  width: 138px;
-  background-color: #282828;
-}
-#signin {
-  float: right;
-}
 #signin1 {
   float: right;
 }
@@ -54,7 +47,7 @@ input[type="submit"] {
   color: white;
   background-color: #282828;
   float: right;
-  /* width: 110px; */
+  width: 106.5px;
 }
 form {
   padding-top: 10px;
@@ -62,4 +55,15 @@ form {
 }
 #user {
   float: right;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }

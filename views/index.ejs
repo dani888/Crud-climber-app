@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="/normalize.css" />
         <link rel="stylesheet" href="/skeleton.css" />
         <link rel="stylesheet" href="/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="topnav">
@@ -27,7 +30,7 @@
             <a href="/">Home</a>
             <a class="active" href="/classes">Classes</a>
             <a href="/classes/new">New Class</a>
-            <a href="/about">About</a>
+            <a href="http://danielwerminghausen.com/">About</a>
             <a id="signin" href="/users/new">Register</a>
             <a id="signin1" href="/sessions/new">Login</a>
             <% } %>
@@ -35,6 +38,14 @@
         <div class="container">
             <h1>Hello Climber</h1>
             <table>
+                <thead>
+                    <tr>
+                        <th>Info:</th>
+                        <th>Class:</th>
+                        <th>Overview:</th>
+                        <th>Availability:</th>
+                    </tr>
+                </thead>
                 <% for(let i = 0; i < allClasses.length; i++) { %>  
                 <tr>
                     <td>
@@ -45,14 +56,13 @@
                         <% } %>
                     </td>
                     <td>
-                        Class:<br><%=allClasses[i].name;%>
-                        <!-- <img src="<%=allClasses[i].img %>"> -->
+                    <%=allClasses[i].name;%>
                     </td>
                     <td>   
-                        Class description:<br><%=allClasses[i].description %>
+                    <%=allClasses[i].description %>
                     </td>
                     <td>
-                       Classes on:<br><%=allClasses[i].day %>
+                    <%=allClasses[i].day %>
                     </td>
                 </tr>
                 <% } %>

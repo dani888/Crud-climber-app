@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="/normalize.css" />
         <link rel="stylesheet" href="/skeleton.css" />
         <link rel="stylesheet" href="/indexschedule.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="topnav">
@@ -36,27 +39,34 @@
             <h1>Keep your classes organized</h1>
             <% if(currentUser) { %>
             <table>
+                <thead>
+                    <tr>
+                        <th>Info:</th>
+                        <th>Class:</th>
+                        <th>Notes:</th>
+                        <th>Status:</th>
+                    </tr>
+                </thead>
                 <% for(let i = 0; i < schedules.length; i++) { %>  
                     <% if (schedules[i].userId == currentUser){ %>
                         <tr>
-                            <td>
+                            <td style="width: 60px;">
                                 <button onclick="window.location.href='/classes/scheduler/<%=schedules[i].id%>'">More info</button>
                                 <form action="/classes/scheduler/<%=schedules[i].id%>?_method=DELETE" method="POST">
-                                    <input type="submit" value="DELETE" />
-                                </form>
+                                <input type="submit" value="DELETE" />
+                                </form>  
                             </td>
                             <td>
-                            Class:<br><%=usedClasses[i].name;%>
+                            <%=usedClasses[i].name;%>
                             </td>
                             <td>   
-                            Course Notes:<br><%=schedules[i].note %>
+                            <%=schedules[i].note %>
                             </td>
-                            <td>
-                                Course Status: <br>
+                            <td style="width: 100px;">
                                 <% if(schedules[i].completed === false){ %>
-                                    Course Incomeplete
+                                    Incomeplete!
                                 <% } else { %>
-                                    Course Completed!
+                                    Completed!
                                 <% } %>
                             </td>
                         </tr>
