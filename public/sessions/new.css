@@ -3,7 +3,7 @@ body {
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.unsplash.com/photo-1522163182402-834f871fd851?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=4620&q=80");
+    url("https://images.unsplash.com/photo-1603834608556-88bb4f1b174d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3948&q=80");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -91,17 +91,18 @@ span.psw {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgb(0, 0, 12); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   padding-top: 60px;
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: white;
+  border-radius: 15px;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 500px; /* Could be more or less, depending on screen size */
+  width: 400px; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
@@ -154,7 +155,8 @@ span.psw {
     width: 100%;
   }
 }
-h1 {
+h1,
+h2 {
   text-align: center;
   font-size: 50px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;

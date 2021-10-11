@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require("method-override")
 const session = require("express-session")
 const isAuthenticated = require('./utils/auth');
+
 // initialize the express app
 const app = express();
 app.use(express.static(__dirname + '/public'));
@@ -48,6 +49,7 @@ app.use(
     saveUninitialized: false,
   })
 )
+
 app.use(express.urlencoded());
 
 const sessionsController = require("./controllers/sessions")
@@ -66,7 +68,6 @@ app.get('/' , (req, res) => {
       currentUser: req.session.user
     });
 });
-
 
 // tell the server to listen for requests from the client
 const port = process.env.PORT || 3000;
