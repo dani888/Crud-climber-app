@@ -17,11 +17,11 @@ full stack development, model referencing, and Authentication.
 
 ## Screenshots
 
-- "Main Page View"
+- "Main Page View"<br>
   <img src="./images/Screenshot1.png" width="550" height="350">
-- "Register page"
+- "Register page"<br>
   <img src="./images/Screenshot2.png" width="550" height="350">
-- "Scheduler page"
+- "Scheduler page"<br>
   <img src="./images/Screenshot3.png" width="550" height="350">
 
 ## Getting Started
