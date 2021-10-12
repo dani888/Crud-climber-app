@@ -72,6 +72,12 @@ table {
 th,
 td {
   padding: 8px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #ddd;
+  background-color: #282828;
+  border-radius: 20px;
+  color: white;
+}
+th {
+  color: #04aa6d;
 }
