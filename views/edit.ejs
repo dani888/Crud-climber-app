@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Climber App</title>
-    <link rel="stylesheet" href="/normalize.css" />
-    <link rel="stylesheet" href="/skeleton.css" />
-    <link rel="stylesheet" href="/edit.css" />
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/normalize.css" />
+        <link rel="stylesheet" href="/skeleton.css" />
+        <link rel="stylesheet" href="/edit.css" />
+    </head>
   <body>
     <div class="container">
         <h1>Edit Course</h1>
@@ -15,7 +19,7 @@
             Notes about the Course:<br><input type="text" name="note" value="<%=schedule.note%>"/><br />
             Completed? <input type="checkbox" name="completed"
             <% if(schedule.completed === true){ %> checked <% } %> /><br />
-      <input type="submit" value="Submit Changes" />
+            <input type="submit" value="Submit Changes" />
         </form>
     </div>
   </body>
