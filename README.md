@@ -17,17 +17,17 @@ full stack development, model referencing, and Authentication.
 
 ## Screenshots
 
-- "Main Page View"
-  <img src="./images/Screenshot1.png" width="650" height="600">
-- "Register page"
-  <img src="./images/Screenshot2.png" width="650" height="600">
-- "Scheduler page"
-  <img src="./images/Screenshot3.png" width="650" height="600">
+- "Main Page View"<br>
+  <img src="./images/Screenshot1.png" width="550" height="250">
+- "Register page"<br>
+  <img src="./images/Screenshot2.png" width="550" height="250">
+- "Scheduler page"<br>
+  <img src="./images/Screenshot3.png" width="550" height="250">
 
 ## Getting Started
 
 A User must register and login in order to check our the climbing classes in detail and get access to the scheduler and other cool functionality
-An authenticated user will have the full Crud functionality (Create | Read data | Update | Delete)
+An authenticated user will have the full Crud functionality (Create | Read data | Update | Delete)<br>
 https://crudclimber.herokuapp.com/
 
 ## Future Enhancements
