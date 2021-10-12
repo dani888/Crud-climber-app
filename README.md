@@ -20,6 +20,7 @@ full stack development, model referencing, and Authentication.
 <img src="./images/Screenshot2.png" width="650" height="600">
 - "Scheduler page"
 <img src="./images/Screenshot3.png" width="650" height="600">
+
 ## Getting Started
 A User must register and login in order to check our the climbing classes in detail and get access to the scheduler and other cool functionality
 An authenticated user will have the full Crud functionality (Create | Read data | Update | Delete)
