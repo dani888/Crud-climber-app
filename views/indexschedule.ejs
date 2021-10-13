@@ -21,10 +21,9 @@
             <a href="/classes">Classes</a>
             <a class="active" href="/classes/scheduler">Scheduler</a>
             <a href="/classes/new">New Class</a>
-            <a id="user" href="">Hello <%=user.name %></a>
             
             <form action="/sessions?_method=DELETE" method="POST">
-                <input type="submit" value="Log Out" />
+                <input id="logout" type="submit" value="Log Out" />
             </form>
             <% } else { %>
             <a href="/">Home</a>
@@ -36,7 +35,11 @@
             <% } %>
         </div><br>
         <div class="container">
-            <h1>Keep your classes organized</h1>
+            <% if(currentUser) { %>
+            <h1>Keep your classes organized <%=user.name %></h1>
+            <% } else {%>
+                <h1>Keep your classes organized </h1>
+            <% } %>
             <% if(currentUser) { %>
             <table>
                 <thead>

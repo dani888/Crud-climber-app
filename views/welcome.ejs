@@ -23,7 +23,7 @@
             <a href="/classes/new">New Class</a>
             
             <form action="/sessions?_method=DELETE" method="POST">
-                <input type="submit" value="Log Out" />
+                <input type="submit" value="Log Out"/>
             </form>
             <% } else { %>
             <a class="active" href="/">Home</a>
@@ -34,10 +34,15 @@
             <a id="signin1" href="/sessions/new">Login</a>
             <% } %>
         </div><br>
-        
+        <!-- <% if(currentUser) { %>
+            <form action="/sessions?_method=DELETE" method="POST">
+                <input id="smallbut" type="submit" value="Log Out" />
+            </form>
+        <% } %>
+        <br> -->
         <div id="center">
             <h1>Welcome to Crud Climber</h1><br>
-            <center><button onclick="window.location.href='/classes'">Lets get Started!</button></center><br><br>
+            <button onclick="window.location.href='/classes'">Lets get Started!</button><br><br>
             <div class="slideshow-container">
 
                 <div class="mySlides fade">

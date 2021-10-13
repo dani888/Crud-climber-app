@@ -63,6 +63,8 @@ input[type="submit"] {
 form {
   padding-top: 10px;
   padding-right: 10px;
+  block-size: 20px;
+  float: right;
 }
 
 /* css for image carousel */
@@ -226,7 +228,7 @@ img {
     text-align: center;
     padding: 9px 10px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
   }
   .topnav a:hover {
     background-color: #ddd;
@@ -241,6 +243,43 @@ img {
     text-align: center;
   }
   .slideshow-container {
-    display: none;
+    /* display: none; */
+    margin: -20px -50px;
+    position: relative;
+    top: 30%;
+    left: 20%;
+  }
+  input[type="submit"] {
+    color: white;
+    background-color: #282828;
+    /* display: inline-block; */
+    height: 25px;
+    padding: 0 30px;
+    /* color: #555; */
+    text-align: center;
+    font-size: 11px;
+    font-weight: 60;
+    line-height: 25px;
+    letter-spacing: 0.1rem;
+    /* text-transform: uppercase; */
+    /* text-decoration: none; */
+    /* white-space: nowrap; */
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  form {
+    block-size: 20px;
+  }
+  button {
+    /* height: 20px;
+    width: 100px; */
+    margin: -20px -50px;
+    position: relative;
+    top: 0%;
+    left: 40%;
   }
 }
+/* put hello climber <% name put logout in place %> */

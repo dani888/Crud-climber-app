@@ -21,7 +21,6 @@
             <a class="active" href="/classes">Classes</a>
             <a href="/classes/scheduler">Scheduler</a>
             <a href="/classes/new">New Class</a>
-            <a id="user" href="">Hello <%=user.name %></a>
             
             <form action="/sessions?_method=DELETE" method="POST">
                 <input type="submit" value="Log Out" />
@@ -36,7 +35,11 @@
             <% } %>
         </div><br>
         <div class="container">
+            <% if(currentUser) { %>
+            <h1>Hello Climber <%=user.name %></h1>
+            <% } else {%>
             <h1>Hello Climber</h1>
+            <% } %>
             <table>
                 <thead>
                     <tr>
