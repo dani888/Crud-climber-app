@@ -26,8 +26,9 @@ full stack development, model referencing, and Authentication.
 
 ## Getting Started
 
-A User must register and login in order to check our the climbing classes in detail and get access to the scheduler and other cool functionality
-An authenticated user will have the full Crud functionality (Create | Read data | Update | Delete)<br>
+- A User must register and login in order to check our the climbing classes in detail and get access to the scheduler and other cool functionality
+- An authenticated user will have the full Crud functionality (Create | Read data | Update | Delete)<br>
+- This application is mobile friendly!
 https://crudclimber.herokuapp.com/
 
 ## Future Enhancements
