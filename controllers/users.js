@@ -7,7 +7,7 @@ const User = require("../models/user")
 // New (registration page)
 userRouter.get("/new", (req, res) => {
     res.render("users/new.ejs", {
-      currentUser: req.session.currentUser,
+      currentUser: req.session.user,
     })
   })
 
@@ -17,7 +17,8 @@ userRouter.post("/", (req, res) => {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
   
     User.create(req.body, (error, createdUser) => {
-      res.redirect("/classes")
+      req.session.user = createdUser._id
+      res.redirect("/sessions/new")
     })
   })
 

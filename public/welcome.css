@@ -189,7 +189,7 @@ img {
     left: 20%;
   }
   input[type="submit"] {
-    color: white;
+    color: red;
     background-color: #282828;
     height: 25px;
     padding: 0 30px;
