@@ -15,7 +15,6 @@ body {
 #center {
   height: 200px;
   width: 800px;
-  /* background: black; */
   padding-right: 30px;
   position: fixed;
   top: 50%;
@@ -26,7 +25,6 @@ body {
 button {
   color: white;
   background-color: #282828;
-  /* width: auto; */
 }
 .topnav {
   overflow: hidden;
@@ -58,7 +56,6 @@ input[type="submit"] {
   color: white;
   background-color: #282828;
   float: right;
-  /* width: 110px; */
 }
 form {
   padding-top: 10px;
@@ -82,29 +79,10 @@ img {
 .slideshow-container {
   max-width: 350px;
   opacity: 0.9;
-  /* border-radius: 25px; */
   float: left;
-  /* height: 100%; */
-  /* max-height: 1000px; */
   position: relative;
   margin: auto;
 }
-
-/* Next & previous buttons */
-/* .prev, .next {
-                    cursor: pointer;
-                    position: absolute;
-                    top: 50%;
-                    width: auto;
-                    padding: 16px;
-                    margin-top: -22px;
-                    color: white;
-                    font-weight: bold;
-                    font-size: 18px;
-                    transition: 0.6s ease;
-                    border-radius: 0 3px 3px 0;
-                    user-select: none;
-                    } */
 
 /* Position the "next button" to the right */
 .next {
@@ -128,27 +106,6 @@ img {
   width: 100%;
   text-align: center;
 }
-
-/* Number text (1/3 etc) */
-/* .numbertext {
-                    color: #f2f2f2;
-                    font-size: 12px;
-                    padding: 8px 12px;
-                    position: absolute;
-                    top: 0;
-                    } */
-
-/* The dots/bullets/indicators */
-/* .dot {
-                    cursor: pointer;
-                    height: 15px;
-                    width: 15px;
-                    margin: 0 2px;
-                    background-color: #bbb;
-                    border-radius: 50%;
-                    display: inline-block;
-                    transition: background-color 0.6s ease;
-                    } */
 
 .active,
 .dot:hover {
@@ -181,29 +138,13 @@ img {
   }
 }
 
-/* On smaller screens, decrease text size */
 @media only screen and (max-width: 400px) {
   .text {
     font-size: 11px;
   }
-  body {
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.5)
-      ),
-      url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=5970&q=80");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-size: 12.5px;
-    font-weight: bold;
-    font-family: "Bebas Neue", cursive;
-    color: black;
-  }
   #center {
     height: 200px;
     width: 400px;
-    /* background: black; */
     padding-right: 30px;
     position: fixed;
     top: 50%;
@@ -216,7 +157,6 @@ img {
     background-color: #282828;
     margin: auto;
     text-align: center;
-    /* width: auto; */
   }
   .topnav {
     overflow: hidden;
@@ -243,7 +183,6 @@ img {
     text-align: center;
   }
   .slideshow-container {
-    /* display: none; */
     margin: -20px -50px;
     position: relative;
     top: 30%;
@@ -252,18 +191,13 @@ img {
   input[type="submit"] {
     color: white;
     background-color: #282828;
-    /* display: inline-block; */
     height: 25px;
     padding: 0 30px;
-    /* color: #555; */
     text-align: center;
     font-size: 11px;
     font-weight: 60;
     line-height: 25px;
     letter-spacing: 0.1rem;
-    /* text-transform: uppercase; */
-    /* text-decoration: none; */
-    /* white-space: nowrap; */
     background-color: transparent;
     border-radius: 4px;
     border: 1px solid #bbb;
@@ -274,12 +208,9 @@ img {
     block-size: 20px;
   }
   button {
-    /* height: 20px;
-    width: 100px; */
     margin: -20px -50px;
     position: relative;
     top: 0%;
     left: 40%;
   }
 }
-/* put hello climber <% name put logout in place %> */

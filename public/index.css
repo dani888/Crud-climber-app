@@ -14,7 +14,6 @@ body {
 button {
   color: white;
   background-color: #282828;
-  /* width: auto; */
 }
 .topnav {
   overflow: hidden;
@@ -46,7 +45,6 @@ input[type="submit"] {
   color: white;
   background-color: #282828;
   float: right;
-  /* width: 110px; */
 }
 form {
   padding-top: 10px;
@@ -67,7 +65,6 @@ td {
   border-bottom: 2px solid white;
 }
 
-/* On smaller screens, decrease text size */
 @media only screen and (max-width: 400px) {
   .text {
     font-size: 11px;
@@ -76,8 +73,6 @@ td {
     color: white;
     background-color: #282828;
     margin: auto;
-    text-align: center;
-    /* width: auto; */
   }
   .topnav {
     overflow: hidden;
@@ -107,25 +102,19 @@ td {
     text-align: center;
   }
   table {
-    /* border-collapse: collapse; */
     width: 100%;
     font-size: 13.5px;
   }
   input[type="submit"] {
     color: white;
     background-color: #282828;
-    /* display: inline-block; */
     height: 25px;
     padding: 0 30px;
-    /* color: #555; */
     text-align: center;
     font-size: 11px;
     font-weight: 60;
     line-height: 25px;
     letter-spacing: 0.1rem;
-    /* text-transform: uppercase; */
-    /* text-decoration: none; */
-    /* white-space: nowrap; */
     background-color: transparent;
     border-radius: 4px;
     border: 1px solid #bbb;

@@ -15,7 +15,6 @@ button {
   color: white;
   background-color: #282828;
   width: 107px;
-  /* width: auto; */
 }
 .topnav {
   overflow: hidden;
@@ -52,7 +51,6 @@ input[type="submit"] {
   color: white;
   background-color: #282828;
   float: right;
-  /* width: 110px; */
 }
 #right {
   float: left;
@@ -65,7 +63,6 @@ form {
   padding-right: 10px;
 }
 table {
-  /* border-collapse: collapse; */
   width: 100%;
 }
 
@@ -114,25 +111,19 @@ th {
     text-align: center;
   }
   table {
-    /* border-collapse: collapse; */
     width: 100%;
     font-size: 13.5px;
   }
   #logoutshow[type="submit"] {
     color: white;
     background-color: #282828;
-    /* display: inline-block; */
     height: 25px;
     padding: 0 30px;
-    /* color: #555; */
     text-align: center;
     font-size: 11px;
     font-weight: 60;
     line-height: 25px;
     letter-spacing: 0.1rem;
-    /* text-transform: uppercase; */
-    /* text-decoration: none; */
-    /* white-space: nowrap; */
     background-color: transparent;
     border-radius: 4px;
     border: 1px solid #bbb;
