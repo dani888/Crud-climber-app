@@ -33,5 +33,4 @@ https://crudclimber.herokuapp.com/
 
 ## Future Enhancements
 
-- make application mobil friendly
 - add admin access so only an admin can add classes
